@@ -20,8 +20,10 @@ def calculer_carburant(distance: float, reserve_carburant: float) -> str:
 
     if carburant_consomme * 2 <= reserve_carburant:
         return "Vous avez suffisament de carburant pour faire l'aller-retour."
+
     elif carburant_consomme > reserve_carburant:
         return "Vous manquerez de carburant en cours de chemin!"
+
     else:
         return "Vous pouvez vous rendre à destination, mais pas revenir."
 
