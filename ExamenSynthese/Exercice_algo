@@ -1,0 +1,26 @@
+Habitable = []
+temperature_max = 0
+planet_optimal = ""
+
+
+pour la planete dans les planetes
+
+    nom =planete[0]   habitter=planete[1]   temperature =planete[2]
+
+    si habbiter = Faux et temperature est entre 12 et 22:
+
+         ajouter la planete dans habitable
+
+        si temperature > temperature_max :
+
+            planete optimal = planete
+
+            temperature_max= temperature
+
+
+
+
+
+
+
+
