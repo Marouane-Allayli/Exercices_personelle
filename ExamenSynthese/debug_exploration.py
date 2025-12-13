@@ -1,4 +1,4 @@
-TEMPS_EXPLORATION_MOYEN = "60"
+TEMPS_EXPLORATION_MOYEN = 60
 
 def creation_vaisseau() -> dict:
     """
@@ -25,9 +25,8 @@ def creation_vaisseau() -> dict:
         print("3 - Électro-magnétique")
         choix = input("Entrez votre choix [1-3] : ")
 
-        if choix in ["1", "2", "3"]:
-            print("Le choix doit être un nombre entre 1 et 3. Veuillez réessayer.")
-        elif choix == "1":
+
+        if choix == "1":
             protection = "Thermique"
             break
         elif choix == "2":
@@ -36,12 +35,14 @@ def creation_vaisseau() -> dict:
         elif choix == "3":
             protection = "Électro-magnétique"
             break
+        else :
+            print("Le choix doit être un nombre entre 1 et 3. Veuillez réessayer.")
 
     while True:
         altitude = input("Veuillez entrer l'altitude planifiée pour l'exploration en mètres [200 - 1000] : ")
         try:
             altitude = float(altitude)
-            if altitude > 200 or altitude > 1000:
+            if altitude < 200 or altitude > 1000:
                 raise ValueError
         except ValueError:
             print("L'altitude doit être entre 200 et 1000 mètres. Veuillez réessayer.")
@@ -69,32 +70,41 @@ def calculer_temps_exploration(vaisseau: dict, planete: dict) -> int:
     temps_prevu += vaisseau["boucliers"]
 
     # Calculer l'impact de la protection
-    if planete["temp"] > 150:
+    if planete["température"] > 150:
         if vaisseau["protection"] == "Thermique":
             temps_prevu += 15
+            return temps_prevu
         else:
             temps_prevu -= 15
+            return temps_prevu
 
     if planete["atmosphère"] == "Souffre":
         if vaisseau["protection"] == "Acide":
             temps_prevu += 15
+            return temps_prevu
         else:
             temps_prevu -= 15
+            return temps_prevu
 
     if planete["radiations"] == "Forte":
         if vaisseau["protection"] == "Électro-magnétique":
             temps_prevu += 15
+            return temps_prevu
         else:
             temps_prevu -= 15
+            return temps_prevu
 
     # Calculer l'impact de l'altitude
     if planete["terrain"] == "Montagnes":
         if vaisseau["altitude"] < 500:
             temps_prevu -= 25
+            return temps_prevu
         elif vaisseau["altitude"] < 700:
             temps_prevu -= 10
+            return temps_prevu
         elif vaisseau["altitude"] > 900:
             temps_prevu += 10
+            return temps_prevu
 
 
 if __name__ == '__main__':
