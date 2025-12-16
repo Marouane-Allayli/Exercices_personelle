@@ -44,5 +44,5 @@ def sauvegarder_resultats_csv(nom_fichier, resultats):
 
 if __name__ == "__main__":
     # Exemple de chemin absolu (à adapter à votre système)
-    chemin_absolu = "C:/Users/marou/Downloads/Exercices_personelle/Fichiers/CSV/Exercice_analyse_statistiques/Exercice_analyse_statistiques/analyse_statistiques/Data"
+    chemin_absolu = "C:/Users/marou/Downloads/Exercices_personelle/Fichiers/CSV/Exercice_analyse_statistiques/Exercice_analyse_statistiques/analyse_statistiques/Data/heures_travail_etudiants.csv"
     lire_classes_depuis_csv(chemin_absolu)
